@@ -1,0 +1,12 @@
+[
+  {
+    "query": "SELECT\n    EXTRACT(YEAR FROM t1.appln_filing_date) AS filing_year,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H02S%' THEN t1.appln_id\n        END\n    ) AS h02s_count,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H10F%' THEN t1.appln_id\n        END\n    ) AS h10f_count,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H01L  31%' THEN t1.appln_id\n        END\n    ) AS h01l31_count\nFROM tls201_appln AS t1\nJOIN tls209_appln_ipc AS t2\n    ON t1.appln_id = t2.appln_id\nWHERE\n    t1.appln_filing_date >= DATE '2000-01-01'\n    AND (\n        t2.ipc_class_symbol LIKE 'H02S%'\n        OR t2.ipc_class_symbol LIKE 'H10F%'\n        OR t2.ipc_class_symbol LIKE 'H01L  31%'\n    )\nGROUP BY\n    EXTRACT(YEAR FROM t1.appln_filing_date)\nORDER BY\n    filing_year;\n",
+    "name": "comparison of PV installation mechanics vs tech in semiconductors",
+    "description": "this compares the patstat data classified under H02S which is the part of PV tech dealing with mechanics of installations vs the technology in semiconductors technology itself"
+  },
+  {
+    "query": "SELECT\n    EXTRACT(YEAR FROM t1.appln_filing_date) AS filing_year,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H01L  31%' THEN t1.appln_id\n        END\n    ) AS h01l31_count,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H10K  30%' THEN t1.appln_id\n        END\n    ) AS h10k30_count\nFROM tls201_appln AS t1\nJOIN tls209_appln_ipc AS t2\n    ON t1.appln_id = t2.appln_id\nWHERE\n    t1.appln_filing_date >= DATE '2000-01-01'\n    AND (\n        t2.ipc_class_symbol LIKE 'H01L  31%'\n        OR t2.ipc_class_symbol LIKE 'H10K  30%'\n    )\nGROUP BY\n    EXTRACT(YEAR FROM t1.appln_filing_date)\nORDER BY\n    filing_year;\n",
+    "name": "comparing pv based on semiconductors technology vs organic based materials",
+    "description": "This data compares the applciations of pv modules based on inorganic materials, i.e. clasical semiconductors materials, versus ornaic based materials"
+  }
+]
