@@ -1,12 +1,32 @@
 [
   {
-    "query": "SELECT\n    EXTRACT(YEAR FROM t1.appln_filing_date) AS filing_year,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H02S%' THEN t1.appln_id\n        END\n    ) AS h02s_count,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H10F%' THEN t1.appln_id\n        END\n    ) AS h10f_count,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H01L  31%' THEN t1.appln_id\n        END\n    ) AS h01l31_count\nFROM tls201_appln AS t1\nJOIN tls209_appln_ipc AS t2\n    ON t1.appln_id = t2.appln_id\nWHERE\n    t1.appln_filing_date >= DATE '2000-01-01'\n    AND (\n        t2.ipc_class_symbol LIKE 'H02S%'\n        OR t2.ipc_class_symbol LIKE 'H10F%'\n        OR t2.ipc_class_symbol LIKE 'H01L  31%'\n    )\nGROUP BY\n    EXTRACT(YEAR FROM t1.appln_filing_date)\nORDER BY\n    filing_year;\n",
-    "name": "comparison of PV installation mechanics vs tech in semiconductors",
-    "description": "this compares the patstat data classified under H02S which is the part of PV tech dealing with mechanics of installations vs the technology in semiconductors technology itself"
+    "name": "adsad",
+    "query": "SELECT\n    EXTRACT(YEAR FROM t1.appln_filing_date) AS filing_year,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H02S%' THEN t1.appln_id\n        END\n    ) AS h02s_count,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H10F%' THEN t1.appln_id\n        END\n    ) AS h10f_count,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H01L  31%' THEN t1.appln_id\n        END\n    ) AS h01l31_count\nFROM tls201_appln AS t1\nJOIN tls209_appln_ipc AS t2\n    ON t1.appln_id = t2.appln_id\nWHERE\n    t1.appln_filing_date >= DATE '2000-01-01'\n    AND (\n        t2.ipc_class_symbol LIKE 'H02S%'\n        OR t2.ipc_class_symbol LIKE 'H10F%'\n        OR t2.ipc_class_symbol LIKE 'H01L  31%'\n    )\nGROUP BY\n    EXTRACT(YEAR FROM t1.appln_filing_date)\nORDER BY\n    filing_year;",
+    "description": "ada ad asd a",
+    "author": "asdasd"
   },
   {
-    "query": "SELECT\n    EXTRACT(YEAR FROM t1.appln_filing_date) AS filing_year,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H01L  31%' THEN t1.appln_id\n        END\n    ) AS h01l31_count,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H10K  30%' THEN t1.appln_id\n        END\n    ) AS h10k30_count\nFROM tls201_appln AS t1\nJOIN tls209_appln_ipc AS t2\n    ON t1.appln_id = t2.appln_id\nWHERE\n    t1.appln_filing_date >= DATE '2000-01-01'\n    AND (\n        t2.ipc_class_symbol LIKE 'H01L  31%'\n        OR t2.ipc_class_symbol LIKE 'H10K  30%'\n    )\nGROUP BY\n    EXTRACT(YEAR FROM t1.appln_filing_date)\nORDER BY\n    filing_year;\n",
+    "name": "comparison of PV installation mechanics vs tech in semiconductors",
+    "query": "SELECT\n    EXTRACT(YEAR FROM t1.appln_filing_date) AS filing_year,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H02S%' THEN t1.appln_id\n        END\n    ) AS h02s_count,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H10F%' THEN t1.appln_id\n        END\n    ) AS h10f_count,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H01L  31%' THEN t1.appln_id\n        END\n    ) AS h01l31_count\nFROM tls201_appln AS t1\nJOIN tls209_appln_ipc AS t2\n    ON t1.appln_id = t2.appln_id\nWHERE\n    t1.appln_filing_date >= DATE '2000-01-01'\n    AND (\n        t2.ipc_class_symbol LIKE 'H02S%'\n        OR t2.ipc_class_symbol LIKE 'H10F%'\n        OR t2.ipc_class_symbol LIKE 'H01L  31%'\n    )\nGROUP BY\n    EXTRACT(YEAR FROM t1.appln_filing_date)\nORDER BY\n    filing_year;",
+    "description": "this compares the patstat data classified under H02S which is the part of PV tech dealing with mechanics of installations vs the technology in semiconductors technology itself",
+    "author": "jose"
+  },
+  {
     "name": "comparing pv based on semiconductors technology vs organic based materials",
-    "description": "This data compares the applciations of pv modules based on inorganic materials, i.e. clasical semiconductors materials, versus ornaic based materials"
+    "query": "SELECT\n    EXTRACT(YEAR FROM t1.appln_filing_date) AS filing_year,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H01L  31%' THEN t1.appln_id\n        END\n    ) AS h01l31_count,\n    COUNT(\n        DISTINCT CASE\n            WHEN t2.ipc_class_symbol LIKE 'H10K  30%' THEN t1.appln_id\n        END\n    ) AS h10k30_count\nFROM tls201_appln AS t1\nJOIN tls209_appln_ipc AS t2\n    ON t1.appln_id = t2.appln_id\nWHERE\n    t1.appln_filing_date >= DATE '2000-01-01'\n    AND (\n        t2.ipc_class_symbol LIKE 'H01L  31%'\n        OR t2.ipc_class_symbol LIKE 'H10K  30%'\n    )\nGROUP BY\n    EXTRACT(YEAR FROM t1.appln_filing_date)\nORDER BY\n    filing_year;",
+    "description": "This data compares the applciations of pv modules based on inorganic materials, i.e. clasical semiconductors materials, versus ornaic based materials",
+    "author": "jose"
+  },
+  {
+    "name": "example",
+    "query": "SELECT EXTRACT(YEAR FROM t1.appln_filing_date) AS filing_year, COUNT( DISTINCT CASE WHEN t2.ipc_class_symbol LIKE 'H02S%' THEN t1.appln_id END ) AS h02s_count, COUNT( DISTINCT CASE WHEN t2.ipc_class_symbol LIKE 'H10F%' THEN t1.appln_id END ) AS h10f_count, COUNT( DISTINCT CASE WHEN t2.ipc_class_symbol LIKE 'H01L 31%' THEN t1.appln_id END ) AS h01l31_count FROM tls201_appln AS t1 JOIN tls209_appln_ipc AS t2 ON t1.appln_id = t2.appln_id WHERE t1.appln_filing_date >= DATE '2000-01-01' AND ( t2.ipc_class_symbol LIKE 'H02S%' OR t2.ipc_class_symbol LIKE 'H10F%' OR t2.ipc_class_symbol LIKE 'H01L 31%' ) GROUP BY EXTRACT(YEAR FROM t1.appln_filing_date) ORDER BY filing_year;",
+    "description": "this is an example",
+    "author": "jose"
+  },
+  {
+    "name": "pv modules",
+    "query": "SELECT EXTRACT(YEAR FROM t1.appln_filing_date) AS filing_year, COUNT( DISTINCT CASE WHEN t2.ipc_class_symbol LIKE 'H02S%' THEN t1.appln_id END ) AS h02s_count, COUNT( DISTINCT CASE WHEN t2.ipc_class_symbol LIKE 'H10F%' THEN t1.appln_id END ) AS h10f_count, COUNT( DISTINCT CASE WHEN t2.ipc_class_symbol LIKE 'H01L 31%' THEN t1.appln_id END ) AS h01l31_count FROM tls201_appln AS t1 JOIN tls209_appln_ipc AS t2 ON t1.appln_id = t2.appln_id WHERE t1.appln_filing_date >= DATE '2000-01-01' AND ( t2.ipc_class_symbol LIKE 'H02S%' OR t2.ipc_class_symbol LIKE 'H10F%' OR t2.ipc_class_symbol LIKE 'H01L 31%' ) GROUP BY EXTRACT(YEAR FROM t1.appln_filing_date) ORDER BY filing_year;",
+    "description": "this compares pv modules apploications",
+    "author": "jose"
   }
 ]
